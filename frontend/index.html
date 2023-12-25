@@ -1,0 +1,23 @@
+<html>
+    <script>
+        async function calculate(){
+            const a = document.getElementById('inp1').value;
+            const b = document.getElementById('inp2').value;
+
+            const ans = await fetch('http://localhost:3000/find?a=' + a + "&b="+b)
+            const result = await ans.text();
+
+            const show = document.getElementById('ans');
+            show.innerHTML = result;
+        }
+    </script>
+    <body>
+        <div>
+            <input type="text" id = 'inp1'>
+            <input type="text" id = 'inp2'>
+            <button onclick="calculate()">Calculate</button>
+            <div id = "ans"></div>
+        </div>
+
+    </body>
+</html>
